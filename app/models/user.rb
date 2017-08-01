@@ -14,4 +14,9 @@ class User < ApplicationRecord
     
     return user_group.role
   end
+    
+  def is_organizer?(group_id)
+    # refactor right hand side string into a constant
+    role(group_id) == Role.find_by(name: "organizer")
+  end
 end
