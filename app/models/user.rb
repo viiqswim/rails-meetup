@@ -19,4 +19,8 @@ class User < ApplicationRecord
     # refactor right hand side string into a constant
     role(group_id) == Role.find_by(name: "organizer")
   end
+    
+  def full_name
+    return first_name + ' ' + last_name
+  end
 end

@@ -47,4 +47,9 @@ class UserTest < ActiveSupport::TestCase
     
     assert_not @user.is_organizer?(@group.id)
   end
+  
+  test "#full_name returns the user's full name" do
+    full_name = @user.first_name + " " + @user.last_name
+    assert @user.full_name == full_name
+  end
 end
