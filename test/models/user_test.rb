@@ -5,6 +5,13 @@ class UserTest < ActiveSupport::TestCase
     @user = User.new(first_name: "Joe", 
                      last_name: "User")
   end
+  
+  def add_mock_data
+    @user.save
+    @role = Role.first
+    @group = Group.create(name: "test-group")
+    @group.add_member(@user, @role)
+  end
 
   test "should be valid" do
     assert @user.valid?
@@ -20,5 +27,12 @@ class UserTest < ActiveSupport::TestCase
     @user.first_name = "a" * 50
     @user.last_name = "b" * 50
     assert_not @user.valid?
+  end
+  
+  test "#role returns the correct role" do
+    add_mock_data
+    role = @user.role(@group.id)
+    
+    assert role == @role
   end
 end
