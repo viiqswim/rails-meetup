@@ -1,1 +1,29 @@
-This is the groups#all_groups page
+<div class="container center">
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Groups</h2>
+      
+      <hr />
+      
+      <table class="table table-striped table-bordered">
+        <thead class="thead-inverse">
+          <tr>
+            <td><b>Group Name</b></td>
+            <td colspan="4"><b>Options</b></td>
+          </tr>
+        </thead>
+        <tbody>
+          <% @groups.each do |group| %>
+            <tr>
+              <td><%= group.name %></td>
+              <td><%= link_to 'Members', group %></td>
+              <td><%= link_to 'Organizers', group_organizers_path(group) %></td>
+              <td><%= link_to 'Edit', edit_group_path(group) %></td>
+              <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

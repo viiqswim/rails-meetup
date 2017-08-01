@@ -63,6 +63,7 @@ class GroupsController < ApplicationController
   
   # GET /groups/
   def all_groups
+    @groups = Group.all
   end
 
   private
