@@ -66,6 +66,11 @@ class GroupsController < ApplicationController
   def all_groups
     @groups = Group.all
   end
+  
+  # GET /meetup_file_import/
+  # POST /meetup_file_import/
+  def file_upload
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
