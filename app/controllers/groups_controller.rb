@@ -1,10 +1,10 @@
 class GroupsController < ApplicationController
-  before_action :set_group, only: [:show, :edit, :update, :destroy]
+  before_action :set_group, only: [:index, :show, :edit, :update, :destroy]
 
-  # GET /groups
-  # GET /groups.json
+
+  # GET /groups/1/index
   def index
-    @groups = Group.all
+    @users = @group.users
   end
 
   # GET /groups/1
@@ -59,6 +59,10 @@ class GroupsController < ApplicationController
       format.html { redirect_to groups_url, notice: 'Group was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+  
+  # GET /groups/
+  def all_groups
   end
 
   private
