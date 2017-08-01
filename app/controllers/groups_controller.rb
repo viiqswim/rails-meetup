@@ -5,6 +5,7 @@ class GroupsController < ApplicationController
 
 
   # GET /groups/1/index
+  # GET /groups/1/index.json
   def index
     @users = @group.users
   end
