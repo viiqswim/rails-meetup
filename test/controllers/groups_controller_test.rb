@@ -2,11 +2,11 @@ require 'test_helper'
 
 class GroupsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @group = groups(:one)
+    @group = Group.create(name: "test-group")
   end
 
   test "should get index" do
-    get groups_url
+    get group_index_path
     assert_response :success
   end
 
@@ -44,5 +44,17 @@ class GroupsControllerTest < ActionDispatch::IntegrationTest
     end
 
     assert_redirected_to groups_url
+  end
+
+  test "should get file import" do
+    get meetup_file_import_path
+
+    assert_response :success
+  end
+
+  test "should post file import" do
+    post meetup_file_import_path
+
+    assert_response :success
   end
 end
