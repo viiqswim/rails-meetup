@@ -5,11 +5,14 @@
       <div class="btn-group">
         <%= link_to "See Members", group_members_path, class: "btn btn-info" %>
       </div>
-      
+
       <hr />
-      
+
       <% if @users.empty?  %>
        <p> There are no organizers yet. </p>
+       <p>
+         <%= link_to "Import Data", meetup_file_import_path, class: "btn btn-success" %>
+       </p>
       <% else %>
       <table class="table table-striped table-bordered">
         <thead class="thead-inverse">
